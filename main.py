@@ -1,6 +1,17 @@
 import argparse
 import json
-import os
+import logging
+
+
+def setup_logger():
+    logging.basicConfig(
+        level=logging.INFO,
+        filename="app.log",
+        encoding="utf-8",
+        format="%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+    )
+    return logging.getLogger(__name__)
+
 
 def setup_args():
     parser = argparse.ArgumentParser(
@@ -20,19 +31,20 @@ def setup_args():
         help="Режим 'холостого' запуска без внесения изменений"
     )
 
+
     return parser.parse_args()
 
 
-def load_config(path=os.path.abspath("config.json")):
+def load_config(path="config.json"):
     with open(path, "r", encoding="utf-8") as my_file:
         config = json.load(my_file)
     return config
 
 
-
 def main():
     args = setup_args()
-    print(args)
+    logger = setup_logger()
+    logger.info(f"Запуск скрипта с аргументами: {args}")
 
 
 if __name__ == "__main__":
