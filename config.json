@@ -1,0 +1,22 @@
+{
+    "Images": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".gif"
+    ],
+    "Documents": [
+        ".txt",
+        ".docx",
+        ".pdf",
+        ".xlsx",
+        ".md"
+    ],
+    "Scripts": [
+        ".py",
+        ".json",
+        ".js",
+        ".sh",
+        "bat"
+    ]
+}
